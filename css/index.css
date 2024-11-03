@@ -1,104 +1,14 @@
+@import url(fonts/Redaction/redaction.css);
+@import url(nav.css);
+@import url(title.css);
+
 body {
     background-color: white;
     color: black;
-    font-family: "Crimson Text", "Noto Serif SC", serif;
+    font-family: "Redaction", "Noto Serif SC", serif;
     font-size: 1.5rem;
     margin: 0;
     padding: 5rem;
-}
-
-@keyframes grow-down {
-    0% {
-        height: 0;
-    }
-
-    100% {
-        height: 100%;
-    }
-}
-
-@keyframes move-right {
-    100% {
-        transform: translateX(0);
-    }
-}
-
-nav {
-    bottom: 5rem;
-    min-height: 15rem;
-    overflow: hidden;
-    position: fixed;
-    top: 5rem;
-    user-select: none;
-    width: 10rem;
-}
-
-nav::before {
-    animation: grow-down 1s ease forwards;
-    background-color: black;
-    content: "";
-    position: absolute;
-    width: 2px;
-}
-
-nav ul {
-    animation: move-right .5s ease .5s forwards;
-    height: calc(100% - 3rem);
-    margin: 1.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-    transform: translateX(-100%);
-}
-
-nav li > a {
-    display: inline-block;
-    height: 2rem;
-}
-
-nav li > ul {
-    margin: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: .3s ease;
-}
-
-nav li a:focus + ul {
-    max-height: calc(2rem * var(--list-length));
-}
-
-nav li {
-    list-style: none;
-}
-
-nav > ul > li:last-child {
-    bottom: 0;
-    position: absolute;
-}
-
-nav a {
-    color: black;
-    position: relative;
-    text-decoration: none;
-}
-
-nav a::after {
-    background-color: black;
-    bottom: 0;
-    content: "";
-    height: 2px;
-    left: 0;
-    position: absolute;
-    transition: width .2s ease;
-    width: 0;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-nav + main {
-    margin-left: 12rem;
-    min-width: 30rem;
 }
 
 section {
@@ -107,51 +17,16 @@ section {
     min-height: 100vh;
 }
 
-.main {
-    align-items: end;
-    gap: 1rem;
+.art-collection figure {
+    margin: 0;
 }
 
-.main h1 {
-    font-size: 6rem;
-    line-height: 1;
-    margin: 0;
-    margin-left: auto;
+.art-collection div:has(img) {
     overflow: hidden;
     position: relative;
 }
 
-.main h1 sup {
-    font-family: "VT323", monospace;
-    font-size: 1.5rem;
-    font-weight: 400;
-}
-
-.main h1::after {
-    animation: move-right .5s ease .5s forwards;
-    background-color: white;
-    content: "";
-    height: 100%;
-    position: absolute;
-    transform: translateX(-100%);
-    width: 100%;
-}
-
-.main div img {
-    height: 100%;
-    width: 100%;
-}
-
-figure {
-    margin: 0;
-}
-
-div:has(img) {
-    overflow: hidden;
-    position: relative;
-}
-
-div:has(img)::after {
+.art-collection div:has(img)::after {
     animation: move-right .5s ease .5s forwards;
     background-color: white;
     content: "";

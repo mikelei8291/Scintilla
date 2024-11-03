@@ -7,6 +7,15 @@ document.querySelectorAll("img").forEach(n => {
 
 document.querySelectorAll(`a[href="#"]`).forEach(n => n.addEventListener("click", preventEvent));
 
+const doubleLayerImage = document.querySelector(".double-layer > img");
+
+doubleLayerImage.addEventListener("mousemove", (e) => {
+    doubleLayerImage.style.setProperty("--x", e.layerX);
+    doubleLayerImage.style.setProperty("--y", e.layerY);
+    doubleLayerImage.style.setProperty("--width", e.target.width);
+    doubleLayerImage.style.setProperty("--height", e.target.height);
+});
+
 const obs = new IntersectionObserver((entries, o) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
