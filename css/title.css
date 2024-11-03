@@ -159,7 +159,7 @@ body {
 
 .title .double-layer::before {
     background-image: url("../assets/white_cliff_grey_dots.webp");
-    background-size: contain;
+    background-size: cover;
     content: "";
     height: 100%;
     position: absolute;
