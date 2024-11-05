@@ -7,7 +7,7 @@ document.querySelectorAll("img").forEach(n => {
 
 document.querySelectorAll(`a[href="#"]`).forEach(n => n.addEventListener("click", preventEvent));
 
-const doubleLayerImage = document.querySelector(".double-layer > img");
+const doubleLayerImage = document.querySelector(".double-layer > img.front");
 
 doubleLayerImage.addEventListener("mousemove", (e) => {
     doubleLayerImage.style.setProperty("--x", e.layerX);
