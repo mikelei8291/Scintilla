@@ -1,0 +1,171 @@
+@import url(fonts/HYXuanSong/font.css);
+@import url("fonts/Book Antiqua/font.css");
+@import url(animation.css);
+
+.dream {
+    overflow: visible;
+    position: relative;
+}
+
+.dream figure {
+    margin: 0;
+    position: relative;
+}
+
+.dream figure > img {
+    height: 100%;
+    left: 0;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    transition: inset 1s ease;
+    width: 100%;
+}
+
+.dream.p1 figure {
+    height: calc(100vh - 20rem);
+    width: calc(100vw - 55rem);
+}
+
+.dream.p2 figure {
+    height: 100vh;
+    width: calc(100vw - 22rem);
+}
+
+.dream.p2 figure > img {
+    height: calc(100vh - 26rem);
+    width: calc(100vw - 50rem);
+}
+
+.dream.p2 figure > img.back {
+    left: 0;
+    top: 0;
+}
+
+.dream.p2 figure > img.middle {
+    left: 10vw;
+    top: 12vh;
+}
+
+.dream.p2 figure > img.front {
+    left: 30vw;
+    top: 30vh;
+}
+
+.dream h1 {
+    margin: 0;
+    position: absolute;
+}
+
+.dream h1.p1 {
+    bottom: 12rem;
+    font-family: "Book Antiqua", serif;
+    font-size: 5rem;
+    font-weight: 400;
+    left: 26rem;
+    transition: none 1s ease;
+    transition-property: bottom, left;
+}
+
+.dream.p2 h1.p1 {
+    bottom: 20rem;
+    left: 18rem;
+}
+
+.dream h1.p1::after {
+    content: "";
+    transition: width .5s ease .8s;
+    width: 0;
+}
+
+.dream.p2 h1.p1::after {
+    background-color: yellow;
+    bottom: .5rem;
+    content: "";
+    height: 2rem;
+    left: 7.5rem;
+    position: absolute;
+    width: 12rem;
+    z-index: -1;
+}
+
+.dream h1.p2 {
+    opacity: 0;
+}
+
+.dream.p2 h1.p2 {
+    color: rgb(0 0 0 / .25);
+    font-family: "Cactus Classical Serif", serif;
+    font-size: 20rem;
+    font-weight: 400;
+    line-height: 1;
+    opacity: 1;
+    right: -8rem;
+    top: -3rem;
+    transition: opacity 1s ease;
+}
+
+.dream article {
+    font-family: "汉仪玄宋 35S", serif;
+    font-size: 1rem;
+    position: absolute;
+}
+
+.dream article:nth-of-type(1) {
+    right: 0;
+    transition: width .5s ease;
+    width: 30rem;
+}
+
+.dream.p2 article:nth-of-type(1) {
+    width: 26rem;
+}
+
+.dream article:nth-of-type(2) {
+    bottom: 6rem;
+}
+
+.dream article > div > div {
+    margin: 1.5rem 0;
+}
+
+.dream article > div.vertical > div {
+    margin-right: 3rem;
+}
+
+.dream article p {
+    margin: 0;
+}
+
+.dream.p1 .multilingual .p2,
+.dream.p2 .multilingual .p1 {
+    display: none;
+}
+
+.dream .compressed > p:nth-child(1) {
+    line-height: 0.2;
+}
+
+.dream .compressed > p:nth-child(2) {
+    line-height: 0.5;
+}
+
+.dream .compressed > p:nth-child(3) {
+    line-height: 0.8;
+}
+
+.dream .compressed > p:nth-child(4) {
+    line-height: 1.1;
+}
+
+.dream .compressed > p:nth-child(5) {
+    line-height: 1.4;
+}
+
+.dream .compressed > p:nth-child(6) {
+    line-height: 1.7;
+}
+
+.dream .vertical {
+    writing-mode: vertical-rl;
+}

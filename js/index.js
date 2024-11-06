@@ -19,9 +19,10 @@ doubleLayerImage.addEventListener("mousemove", (e) => {
 const obs = new IntersectionObserver((entries, o) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
+            entry.target.classList.remove("p1");
+            entry.target.classList.add("p2");
         }
     })
-}, { threshold: 0.8 });
+}, { threshold: 0.9 });
 
-document.querySelectorAll(".art-collection figure").forEach(n => obs.observe(n));
+obs.observe(document.querySelector(".dream"));

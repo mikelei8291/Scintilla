@@ -1,5 +1,6 @@
 @import url(nav.css);
 @import url(title.css);
+@import url(dream.css);
 
 body {
     background-color: white;
@@ -15,75 +16,6 @@ section {
     flex-direction: column;
     min-height: 100vh;
     overflow-y: clip;
-}
-
-.art-collection figure {
-    margin: 0;
-}
-
-.art-collection div:has(img) {
-    overflow: hidden;
-    position: relative;
-}
-
-.art-collection div:has(img)::after {
-    animation: move-right .5s ease .5s forwards;
-    background-color: white;
-    content: "";
-    height: 100%;
-    position: absolute;
-    transform: translateX(-100%);
-    width: 100%;
-}
-
-.art-collection {
-    gap: 2rem;
-}
-
-.art-collection > figure {
-    display: flex;
-    gap: 2rem;
-    justify-content: space-between;
-}
-
-.art-collection figure img {
-    height: 20rem;
-}
-
-.art-collection figure figcaption {
-    overflow: hidden;
-    position: relative;
-}
-
-.art-collection figure figcaption::after {
-    animation: move-right .5s ease forwards;
-    background-color: white;
-    content: "";
-    height: 100%;
-    position: absolute;
-    transform: translateX(-100%);
-    width: 100%;
-}
-
-.art-collection figure figcaption:first-of-type {
-    align-self: start;
-    padding-top: 3rem;
-}
-
-.art-collection figure figcaption:last-of-type {
-    align-self: end;
-    padding-bottom: 3rem;
-}
-
-.art-collection figure > div:has(img)::after,
-.art-collection figure figcaption::after {
-    animation-delay: 0s;
-    animation-play-state: paused;
-}
-
-.art-collection figure.visible > div:has(img)::after,
-.art-collection figure.visible figcaption::after {
-    animation-play-state: running;
 }
 
 footer {
