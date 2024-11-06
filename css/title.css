@@ -1,4 +1,5 @@
-@import url(fonts/PixelMplus12/pixel_mplus12.css);
+@import url(fonts/Redaction/font.css);
+@import url(fonts/PixelMplus12/font.css);
 @import url(animation.css);
 
 @keyframes rotate {
