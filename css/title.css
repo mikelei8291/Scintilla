@@ -196,11 +196,11 @@ body {
     background-image: url("../assets/yellow_flower.svg");
     background-repeat: no-repeat;
     background-size: contain;
+    bottom: 45%;
     content: "";
     height: 3rem;
     left: -15%;
     position: absolute;
-    top: -20%;
     width: 3rem;
 }
 
@@ -210,11 +210,11 @@ body {
     background-image: url("../assets/white_flower.svg");
     background-repeat: no-repeat;
     background-size: contain;
+    bottom: 400%;
     content: "";
     height: 3rem;
-    left: 215%;
     position: absolute;
-    top: -400%;
+    right: -120%;
     width: 3rem;
 }
 
