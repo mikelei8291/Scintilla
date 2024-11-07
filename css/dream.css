@@ -3,13 +3,26 @@
 @import url(animation.css);
 
 .dream {
+    height: 300vh;
     overflow: visible;
-    position: relative;
+}
+
+.dream .view {
+    height: 100vh;
+    position: sticky;
+    top: 0;
 }
 
 .dream figure {
     margin: 0;
+    opacity: 0;
     position: relative;
+    top: 1rem;
+    transition: opacity 1s ease 1.2s;
+}
+
+.dream .view.animate figure {
+    opacity: 1;
 }
 
 .dream figure > img {
@@ -18,91 +31,68 @@
     object-fit: contain;
     position: absolute;
     top: 0;
-    transition: inset 1s ease;
     width: 100%;
 }
 
-.dream.p1 figure {
-    height: calc(100vh - 20rem);
-    width: calc(100vw - 55rem);
+.dream figure {
+    height: calc(100vh - 20rem * (1 - var(--progress)));
+    width: calc(100vw - 22rem - 33rem * (1 - var(--progress)));
 }
 
-.dream.p2 figure {
-    height: 100vh;
-    width: calc(100vw - 22rem);
-}
-
-.dream.p2 figure > img {
+.dream figure > img {
     height: calc(100vh - 26rem);
     width: calc(100vw - 50rem);
 }
 
-.dream.p2 figure > img.back {
+.dream figure > img.back {
     left: 0;
     top: 0;
 }
 
-.dream.p2 figure > img.middle {
-    left: 10vw;
-    top: 12vh;
+.dream figure > img.middle {
+    left: calc(10vw * var(--progress));
+    top: calc(12vh * var(--progress));
 }
 
-.dream.p2 figure > img.front {
-    left: 30vw;
-    top: 30vh;
+.dream figure > img.front {
+    left: calc(30vw * var(--progress));
+    top: calc(30vh * var(--progress));
 }
 
 .dream h1 {
     margin: 0;
     position: absolute;
+    z-index: 1;
 }
 
 .dream h1.p1 {
-    bottom: 12rem;
+    bottom: calc(12rem + 8rem * var(--progress));
     font-family: "Book Antiqua", serif;
     font-size: 5rem;
     font-weight: 400;
-    left: 26rem;
-    transition: none 1s ease;
-    transition-property: bottom, left;
-}
-
-.dream.p2 h1.p1 {
-    bottom: 20rem;
-    left: 18rem;
+    left: calc(26rem - 8rem * var(--progress));
 }
 
 .dream h1.p1::after {
-    content: "";
-    transition: width .5s ease .8s;
-    width: 0;
-}
-
-.dream.p2 h1.p1::after {
     background-color: yellow;
     bottom: .5rem;
     content: "";
     height: 2rem;
     left: 7.5rem;
     position: absolute;
-    width: 12rem;
+    width: calc(12rem * var(--progress));
     z-index: -1;
 }
 
 .dream h1.p2 {
-    opacity: 0;
-}
-
-.dream.p2 h1.p2 {
     color: rgb(0 0 0 / .25);
     font-family: "Cactus Classical Serif", serif;
     font-size: 20rem;
     font-weight: 400;
     line-height: 1;
-    opacity: 1;
+    opacity: calc(1 * var(--progress));
     right: -8rem;
     top: -3rem;
-    transition: opacity 1s ease;
 }
 
 .dream article {
@@ -112,24 +102,60 @@
 }
 
 .dream article:nth-of-type(1) {
+    overflow: hidden;
     right: 0;
-    transition: width .5s ease;
-    width: 30rem;
+    top: 0;
+    width: calc(30rem - 4rem * var(--progress));
 }
 
-.dream.p2 article:nth-of-type(1) {
-    width: 26rem;
+.dream article:nth-of-type(1) div::after {
+    background-color: white;
+    content: "";
+    height: 100%;
+    left: 100%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 1s ease 1.2s;
+    width: 100%;
+}
+
+.dream .view.animate article:nth-of-type(1) div::after {
+    transform: translateX(0);
 }
 
 .dream article:nth-of-type(2) {
     bottom: 6rem;
+    opacity: calc(1 - var(--progress));
+    overflow: hidden;
 }
 
-.dream article > div > div {
+.dream article:nth-of-type(2) div::after {
+    background-color: white;
+    content: "";
+    height: 100%;
+    left: 100%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 1s ease 1.2s;
+    width: 100%;
+}
+
+.dream .view.animate article:nth-of-type(2) div::after {
+    transform: translateX(0);
+}
+
+.dream article:nth-of-type(3) {
+    bottom: 5rem;
+    opacity: var(--progress);
+}
+
+.dream article > div {
     margin: 1.5rem 0;
 }
 
-.dream article > div.vertical > div {
+.dream article.vertical > div {
     margin-right: 3rem;
 }
 
@@ -137,33 +163,24 @@
     margin: 0;
 }
 
-.dream.p1 .multilingual .p2,
-.dream.p2 .multilingual .p1 {
+.dream article span.alt {
     display: none;
 }
 
-.dream .compressed > p:nth-child(1) {
-    line-height: 0.2;
+.dream .compressed > p:nth-of-type(1) {
+    line-height: calc(1.3 - 1.1 * var(--progress));
 }
 
-.dream .compressed > p:nth-child(2) {
-    line-height: 0.5;
+.dream .compressed > p:nth-of-type(2) {
+    line-height: calc(1.3 - 0.8 * var(--progress));
 }
 
-.dream .compressed > p:nth-child(3) {
-    line-height: 0.8;
+.dream .compressed > p:nth-of-type(3) {
+    line-height: calc(1.3 - 0.5 * var(--progress));
 }
 
-.dream .compressed > p:nth-child(4) {
-    line-height: 1.1;
-}
-
-.dream .compressed > p:nth-child(5) {
-    line-height: 1.4;
-}
-
-.dream .compressed > p:nth-child(6) {
-    line-height: 1.7;
+.dream .compressed > p:nth-of-type(4) {
+    line-height: calc(1.3 - 0.2 * var(--progress));
 }
 
 .dream .vertical {

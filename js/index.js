@@ -1,3 +1,5 @@
+import { CharacterReplacer, CharacterShow } from "./dream.js";
+
 const preventEvent = (e) => e.preventDefault();
 
 document.querySelectorAll("img").forEach(n => {
@@ -16,13 +18,30 @@ doubleLayerImage.addEventListener("mousemove", (e) => {
     doubleLayerImage.style.setProperty("--height", e.target.height);
 });
 
+const dream = document.querySelector(".dream");
+const delay = 0.5;
+const overshot = 1.2;
+const replacers = Array.from(document.querySelectorAll(".multilingual p:not(.alt)")).map(p => new CharacterReplacer(p));
+window.addEventListener("scroll", () => {
+    let progress = ((window.innerHeight - dream.getBoundingClientRect().top) / window.innerHeight - 1) * overshot - delay;
+    if (progress < 0) {
+        progress = 0;
+    } else if (progress > 1) {
+        progress = 1;
+    }
+    dream.style.setProperty("--progress", progress);
+    replacers.forEach(r => r.setProgress(progress));
+}, { passive: true });
+
+const titleShow = new CharacterShow(document.querySelector(".dream h1.p1"));
 const obs = new IntersectionObserver((entries, o) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.remove("p1");
-            entry.target.classList.add("p2");
+            entry.target.classList.add("animate");
+            titleShow.show();
+            obs.disconnect();
         }
     })
 }, { threshold: 0.9 });
 
-obs.observe(document.querySelector(".dream"));
+obs.observe(document.querySelector(".dream .view"));
