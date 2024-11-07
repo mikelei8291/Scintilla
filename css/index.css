@@ -2,6 +2,11 @@
 @import url(title.css);
 @import url(dream.css);
 
+:root {
+    scrollbar-color: #fe0000 white;
+    scrollbar-width: thin;
+}
+
 body {
     background-color: white;
     color: black;
