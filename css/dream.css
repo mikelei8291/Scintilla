@@ -41,8 +41,8 @@
 }
 
 .dream figure > img.disk {
+    height: calc((100vh - 20rem) * 0.42);
     transform: rotateZ(calc(360deg * var(--cursor-h, 0)));
-    transform-origin: 50% 24.2742%;
 }
 
 .dream figure > img.back {
