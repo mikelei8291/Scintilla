@@ -40,6 +40,11 @@
     width: calc(100vw - 22rem - 33rem * (1 - var(--progress)));
 }
 
+.dream figure > img.disk {
+    transform: rotateZ(calc(360deg * var(--cursor-h, 0)));
+    transform-origin: 50% 24.2742%;
+}
+
 .dream figure > img.back {
     left: calc(var(--cursor-range) * var(--cursor-h, 0));
     top: calc(var(--cursor-range) * var(--cursor-v, 0));
