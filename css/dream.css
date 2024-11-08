@@ -26,12 +26,13 @@
 }
 
 .dream figure > img {
-    height: 100%;
+    height: calc(100vh - 26rem);
     left: 0;
     object-fit: contain;
+    pointer-events: none;
     position: absolute;
     top: 0;
-    width: 100%;
+    width: calc(100vw - 50rem);
 }
 
 .dream figure {
@@ -39,24 +40,19 @@
     width: calc(100vw - 22rem - 33rem * (1 - var(--progress)));
 }
 
-.dream figure > img {
-    height: calc(100vh - 26rem);
-    width: calc(100vw - 50rem);
-}
-
 .dream figure > img.back {
-    left: 0;
-    top: 0;
+    left: calc(var(--cursor-range) * var(--cursor-h, 0));
+    top: calc(var(--cursor-range) * var(--cursor-v, 0));
 }
 
 .dream figure > img.middle {
-    left: calc(10vw * var(--progress));
-    top: calc(12vh * var(--progress));
+    left: calc(10vw * var(--progress) + var(--cursor-range) * var(--cursor-h, 0) * -1);
+    top: calc(12vh * var(--progress) + var(--cursor-range) * var(--cursor-v, 0) * -1);
 }
 
 .dream figure > img.front {
-    left: calc(30vw * var(--progress));
-    top: calc(30vh * var(--progress));
+    left: calc(30vw * var(--progress) + var(--cursor-range) * var(--cursor-h, 0) * 2);
+    top: calc(30vh * var(--progress) + var(--cursor-range) * var(--cursor-v, 0) * 2);
 }
 
 .dream h1 {

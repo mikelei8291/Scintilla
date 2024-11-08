@@ -44,3 +44,30 @@ export class CharacterShow {
         }
     }
 }
+
+export class CursorMovementObserver {
+    constructor(element, range = "1rem") {
+        this.element = element;
+        element.style.setProperty("--cursor-range", range);
+        this.callback = (e) => {
+            const { width, height } = element.getBoundingClientRect();
+            element.style.setProperty("--cursor-h", `${2 * e.layerX / width - 1}`);
+            element.style.setProperty("--cursor-v", `${2 * e.layerY / height - 1}`);
+        };
+        this.observing = false;
+    }
+
+    observe() {
+        if (!this.observing) {
+            this.element.addEventListener("mousemove", this.callback);
+            this.observing = true;
+        }
+    }
+
+    unobserve() {
+        if (this.observing) {
+            this.element.removeEventListener("mousemove", this.callback);
+            this.observing = false;
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import { CharacterReplacer, CharacterShow } from "./dream.js";
+import { CharacterReplacer, CharacterShow, CursorMovementObserver } from "./dream.js";
 
 const preventEvent = (e) => e.preventDefault();
 
@@ -22,12 +22,17 @@ const dream = document.querySelector(".dream");
 const delay = 0.5;
 const overshot = 1.2;
 const replacers = Array.from(document.querySelectorAll(".multilingual p:not(.alt)")).map(p => new CharacterReplacer(p));
+const cmobs = new CursorMovementObserver(document.querySelector(".dream figure.assembly"));
 window.addEventListener("scroll", () => {
     let progress = ((window.innerHeight - dream.getBoundingClientRect().top) / window.innerHeight - 1) * overshot - delay;
     if (progress < 0) {
         progress = 0;
     } else if (progress > 1) {
         progress = 1;
+        cmobs.observe();
+    }
+    if (progress < 1) {
+        cmobs.unobserve();
     }
     dream.style.setProperty("--progress", progress);
     replacers.forEach(r => r.setProgress(progress));
