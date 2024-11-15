@@ -8,6 +8,7 @@ nav {
     top: 5rem;
     user-select: none;
     width: 10rem;
+    z-index: 1;
 }
 
 nav::before {
