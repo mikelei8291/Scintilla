@@ -39,7 +39,7 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 
 const titleShow = new CharacterShow(document.querySelector(".dream h1.p1"));
-const obs = new IntersectionObserver((entries, o) => {
+(new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add("animate");
@@ -47,6 +47,4 @@ const obs = new IntersectionObserver((entries, o) => {
             obs.disconnect();
         }
     })
-}, { threshold: 0.9 });
-
-obs.observe(document.querySelector(".dream .view"));
+}, { threshold: 0.9 })).observe(document.querySelector(".dream .view"));
