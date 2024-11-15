@@ -1,4 +1,5 @@
 import { CharacterReplacer, CharacterShow, CursorMovementObserver } from "./dream.js";
+import { ScrollObserver } from "./scroll.js";
 
 const preventEvent = (e) => e.preventDefault();
 
@@ -18,25 +19,17 @@ doubleLayerImage.addEventListener("mousemove", (e) => {
     doubleLayerImage.style.setProperty("--height", e.target.height);
 });
 
-const dream = document.querySelector(".dream");
-const delay = 0.5;
-const overshot = 1.2;
 const replacers = Array.from(document.querySelectorAll(".multilingual p:not(.alt)")).map(p => new CharacterReplacer(p));
 const cmobs = new CursorMovementObserver(document.querySelector(".dream figure.assembly"));
-window.addEventListener("scroll", () => {
-    let progress = ((window.innerHeight - dream.getBoundingClientRect().top) / window.innerHeight - 1) * overshot - delay;
-    if (progress < 0) {
-        progress = 0;
-    } else if (progress > 1) {
-        progress = 1;
+const scobs = new ScrollObserver();
+scobs.observe(document.querySelector(".dream"), (progress) => {
+    if (progress === 1) {
         cmobs.observe();
-    }
-    if (progress < 1) {
+    } else {
         cmobs.unobserve();
     }
-    dream.style.setProperty("--progress", progress);
     replacers.forEach(r => r.setProgress(progress));
-}, { passive: true });
+}, 1.2, 0.5);
 
 const titleShow = new CharacterShow(document.querySelector(".dream h1.p1"));
 (new IntersectionObserver((entries, obs) => {
