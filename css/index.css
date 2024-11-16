@@ -1,6 +1,9 @@
+@import url(fonts/Redaction/font.css);
+@import url(fonts/HYXuanSong/font.css);
 @import url(nav.css);
 @import url(title.css);
 @import url(dream.css);
+@import url(animism.css);
 
 :root {
     scrollbar-color: #fe0000 white;
@@ -10,7 +13,7 @@
 body {
     background-color: white;
     color: black;
-    font-family: "Redaction", "Noto Serif SC", serif;
+    font-family: "Redaction", "汉仪玄宋", serif;
     font-size: 1.5rem;
     margin: 0;
     padding: 0 5rem 5rem;
@@ -49,10 +52,6 @@ footer a:visited {
 
     nav + main {
         margin-left: calc(2px + 1rem);
-    }
-
-    .art-collection > figure {
-        flex-direction: column;
     }
 
     footer {

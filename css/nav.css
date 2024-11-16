@@ -1,7 +1,9 @@
+@import url(fonts/Redaction/font.css);
 @import url(animation.css);
 
 nav {
     bottom: 5rem;
+    font-family: "Redaction", serif;
     min-height: 15rem;
     overflow: hidden;
     position: fixed;
