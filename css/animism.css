@@ -3,7 +3,7 @@
 
 .animism {
     height: 220vh;
-    min-width: calc(1400px - 22rem);
+    min-width: calc(1500px - 22rem);
     overflow: visible;
     position: relative;
 }
@@ -29,7 +29,13 @@
     left: 0;
     position: absolute;
     top: 14vh;
+    transition: z-index .1s linear 4s;
     width: 88vw;
+    z-index: 1;
+}
+
+.animism.animate #animism-line {
+    z-index: 0;
 }
 
 #animism-line path {
@@ -68,7 +74,7 @@
 .animism .view div.indented {
     align-items: end;
     box-sizing: border-box;
-    padding: 0 8rem 0 10.25rem;
+    padding: 0 10rem 0 10.5rem;
 }
 
 .animism span.spaced p {
@@ -155,6 +161,10 @@
 .animism p.filled {
     background-color: black;
     color: white;
+}
+
+.animism span:has(p.filled:not(:empty)) p {
+    padding: 5px 0;
 }
 
 .animism span.vertical p.filled:empty {
