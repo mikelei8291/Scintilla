@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5184 3956">
+  <defs>
+    <style>
+      .arc { fill: none; stroke: red; stroke-width: 5px; stroke-linecap: round; animation-play-state: var(--anips, paused); }
+      .line { fill: none; stroke: red; stroke-width: 5px; stroke-dasharray: 30; animation-play-state: var(--anips, paused); }
+    </style>
+  </defs>
+  <g>
+    <path class="line">
+      <animate attributeName="d" values="M 1981 0 v 0;M 1981 0 v 3956" begin="0s" dur="1s" fill="freeze" keyTimes="0;1"/>
+    </path>
+    <path class="line">
+      <animate attributeName="d" values="M 2447 1978 h 0;M 2447 1978 h -2444" begin="0s" dur="1s" fill="freeze" keyTimes="0;1"/>
+    </path>
+    <path class="line">
+      <animate attributeName="d" values="M 1225 2268 v 0;M 1225 2268 v -1512" begin="0s" dur="1s" fill="freeze" keyTimes="0;1"/>
+    </path>
+    <path class="line">
+      <animate attributeName="d" values="M 1049 1512 h 0;M 1049 1512 h 932" begin="0s" dur="1s" fill="freeze" keyTimes="0;1"/>
+    </path>
+    <path class="line">
+      <animate attributeName="d" values="M 1515 1398 v 0;M 1515 1398 v 580" begin="0s" dur="1s" fill="freeze" keyTimes="0;1"/>
+    </path>
+    <path class="line">
+      <animate attributeName="d" values="M 1577 1688 h 0;M 1577 1688 h -352" begin="0s" dur="1s" fill="freeze" keyTimes="0;1"/>
+    </path>
+    <path class="line">
+      <animate attributeName="d" values="M 1401 1688 v 0;M 1401 1688 v -176" begin="0s" dur="1s" fill="freeze" keyTimes="0;1"/>
+    </path>
+  </g>
+  <g>
+    <path class="arc" d="M 5181 756 a 3200 3200 90 0 1 -3200 3200 a 1978 1978 180 1 1 0 -3956" style="stroke-dasharray: 11242.2; stroke-dashoffset: 11242.2px;">
+      <animate attributeName="stroke-dashoffset" values="11242.2px;0px" begin="1s" dur="1.52s" fill="freeze" keyTimes="0; 1"/>
+    </path>
+    <path class="arc" d="M 3 1978 a 1222 1222 180 1 1 2444 0" style="stroke-dasharray: 3839.57; stroke-dashoffset: 3839.57px;">
+      <animate attributeName="stroke-dashoffset" values="3839.57px;0px" begin="2.1s" dur="1.01s" fill="freeze" keyTimes="0; 1"/>
+    </path>
+    <path class="arc" d="M 1225 756 a 756 756 180 1 1 0 1512" style="stroke-dasharray: 2375.38; stroke-dashoffset: 2375.38px;">
+      <animate attributeName="stroke-dashoffset" values="2375.38px;0px" begin="2.6s" dur="0.68s" fill="freeze" keyTimes="0; 1"/>
+    </path>
+    <path class="arc" d="M 1981 1512 a 466 466 180 1 1 -932 0" style="stroke-dasharray: 1464.19; stroke-dashoffset: 1464.19px;">
+      <animate attributeName="stroke-dashoffset" values="1464.19px;0px" begin="2.94s" dur="0.45s" fill="freeze" keyTimes="0; 1"/>
+    </path>
+    <path class="arc" d="M 1515 1978 a 290 290 180 1 1 0 -580" style="stroke-dasharray: 911.19; stroke-dashoffset: 911.19px;">
+      <animate attributeName="stroke-dashoffset" values="911.19px;0px" begin="3.16s" dur="0.3s" fill="freeze" keyTimes="0; 1"/>
+    </path>
+    <path class="arc" d="M 1225 1688 a 176 176 180 1 1 352 0" style="stroke-dasharray: 553; stroke-dashoffset: 553px;">
+      <animate attributeName="stroke-dashoffset" values="553px;0px" begin="3.31s" dur="0.2s" fill="freeze" keyTimes="0; 1"/>
+    </path>
+  </g>
+</svg>

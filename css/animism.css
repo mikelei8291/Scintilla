@@ -1,0 +1,230 @@
+@import url(fonts/Redaction/font.css);
+@import url(fonts/HYXuanSong/font.css);
+
+.animism {
+    height: 220vh;
+    min-width: calc(1400px - 22rem);
+    overflow: visible;
+    position: relative;
+}
+
+.animism .view {
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 5rem 0;
+    position: sticky;
+    top: 0;
+}
+
+#animism-pic {
+    box-sizing: border-box;
+    height: 100vh;
+    left: -17rem;
+    position: absolute;
+    width: 100vw;
+}
+
+#animism-line {
+    height: 36.16vw;
+    left: 0;
+    position: absolute;
+    top: 14vh;
+    width: 88vw;
+}
+
+#animism-line path {
+    stroke-dashoffset: calc(2826px * (1 - var(--progress, 0)));
+}
+
+#animism-spiral {
+    left: 57vw;
+    opacity: calc(4 * var(--progress, 0) - 3);
+    position: absolute;
+    top: calc(14vh - 8vw);
+    width: 80%;
+}
+
+#animism-img {
+    left: 62.2vw;
+    opacity: 0;
+    position: absolute;
+    top: calc(14vh - 2.2vw);
+    transition: opacity .5s ease;
+    width: 28vw;
+    z-index: -1;
+}
+
+.animism.animate #animism-img {
+    opacity: 1;
+}
+
+.animism .view div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    width: 60%;
+}
+
+.animism .view div.indented {
+    align-items: end;
+    box-sizing: border-box;
+    padding: 0 8rem 0 10.25rem;
+}
+
+.animism span.spaced p {
+    margin: 1rem 0;
+}
+
+.animism span.vertical {
+    height: fit-content;
+    writing-mode: vertical-rl;
+}
+
+.animism span.vertical p {
+    line-height: 1.25;
+    margin-left: .25rem;
+}
+
+.animism span.filled p:empty {
+    height: .5rem;
+    margin-top: .25rem;
+    width: 5rem;
+}
+
+.animism span.filled p:empty::after {
+    background-color: white;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    transform: translateX(0);
+    transition: transform .5s ease;
+    width: 100%;
+}
+
+.animism.animate span.filled p:empty::after {
+    transform: translateX(100%);
+    transition: transform .5s ease 3.5s;
+}
+
+.animism p {
+    font-family: "Redaction", "汉仪玄宋", serif;
+    font-size: 1rem;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.animism span:not(.filled) p::after {
+    background-color: white;
+    content: "";
+    height: 100%;
+    position: absolute;
+    transition: transform .5s ease;
+    width: 100%;
+}
+
+.animism span:not(.vertical, .filled) p::after {
+    left: 0;
+    transform: translateX(0);
+}
+
+.animism.animate span:not(.vertical, .filled) p::after {
+    transform: translateX(100%);
+    transition-delay: 2.75s;
+}
+
+.animism span.vertical p::after {
+    top: 0;
+    transform: translateY(0);
+}
+
+.animism.animate span.vertical p::after {
+    transform: translateY(100%);
+    transition-delay: 3.5s;
+}
+
+.animism.animate span.delayed p::after {
+    transition-delay: 3.5s;
+}
+
+.animism p.spaced {
+    word-spacing: 2.5rem;
+}
+
+.animism p.filled {
+    background-color: black;
+    color: white;
+}
+
+.animism span.vertical p.filled:empty {
+    height: auto;
+    width: 1rem;
+}
+
+.animism strong {
+    cursor: default;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.25;
+    position: relative;
+}
+
+.animism strong::after {
+    background-color: black;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: none .5s ease;
+    transition-property: left, width;
+    width: 100%;
+}
+
+.animism.animate strong:hover::after {
+    left: 100%;
+    width: 0;
+}
+
+.animism .view .logo,
+.animism .view .logo ~ div {
+    align-items: end;
+    justify-content: start;
+    position: relative;
+    top: -5rem;
+}
+
+.animism .view .logo {
+    align-items: baseline;
+    color: red;
+    font-size: 3.5rem;
+}
+
+.animism .view .logo span {
+    overflow: hidden;
+    position: relative;
+}
+
+.animism .view .logo span::after {
+    background-color: white;
+    content: "";
+    height: 100%;
+    position: absolute;
+    transform: translateX(-100%);
+    transition: transform .25s ease;
+    width: 100%;
+}
+
+.animism.animate .view .logo span::after {
+    transform: translateX(0);
+    transition: transform .5s ease 2s;
+}
+
+#animism-logo {
+    width: 10vw;
+}
+
+.animism span.indented {
+    margin-left: 16.25rem;
+}

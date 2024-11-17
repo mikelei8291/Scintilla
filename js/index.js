@@ -41,3 +41,26 @@ const titleShow = new CharacterShow(document.querySelector(".dream h1.p1"));
         }
     })
 }, { threshold: 0.9 })).observe(document.querySelector(".dream .view"));
+
+const animism = document.querySelector(".animism");
+Promise.all(Array.from(document.querySelectorAll(`img[src$="svg"]`)).map(
+    svg => fetch(svg.src).then(data => data.text()).then(data => {
+        svg.insertAdjacentHTML("beforebegin", data);
+        svg.previousElementSibling.id = svg.id;
+        svg.previousElementSibling.pauseAnimations();
+        svg.remove();
+    }).catch(e => console.error(e))
+)).then(() => {
+    scobs.observe(animism, (progress) => {
+        if (progress === 1) {
+            animism.classList.add("animate");
+            animism.querySelectorAll("svg").forEach(svg => svg.unpauseAnimations());
+        } else if (progress < 1) {
+            animism.classList.remove("animate");
+            animism.querySelectorAll("svg").forEach(svg => {
+                svg.pauseAnimations();
+                svg.setCurrentTime(0);
+            });
+        }
+    }, 1.2);
+});
