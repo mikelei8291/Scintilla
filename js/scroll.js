@@ -7,6 +7,7 @@ export class ScrollObserver {
     listener = () => {
         this.targets.forEach(({ element, callback, overshot, delay }) => {
             let progress = ((window.innerHeight - element.getBoundingClientRect().top) / window.innerHeight - 1) * overshot - delay;
+            let rawProgress = progress;
             if (progress < 0) {
                 progress = 0;
             } else if (progress > 1) {
@@ -14,7 +15,7 @@ export class ScrollObserver {
             }
             element.style.setProperty("--progress", progress.toString());
             if (callback) {
-                callback(progress);
+                callback(progress, rawProgress);
             }
         });
     }
