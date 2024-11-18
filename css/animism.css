@@ -4,7 +4,6 @@
 .animism {
     height: 220vh;
     min-width: calc(1500px - 22rem);
-    overflow: visible;
     position: relative;
 }
 
