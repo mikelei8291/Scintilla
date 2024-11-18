@@ -64,3 +64,19 @@ Promise.all(Array.from(document.querySelectorAll(`img[src$="svg"]`)).map(
         }
     }, 1.2);
 });
+
+const hug = document.querySelector(".hug");
+scobs.observe(hug, (_, rawProgress) => {
+    if (rawProgress > -0.3 && rawProgress < 1.45) {
+        hug.classList.add("dark");
+    } else if (rawProgress < -0.3 || rawProgress >= 1.45) {
+        hug.classList.remove("dark");
+    }
+    if (rawProgress >= 1.45) {
+        hug.classList.add("animate");
+    } else {
+        hug.classList.remove("animate");
+    }
+    hug.style.setProperty("--raw-progress", rawProgress.toString());
+    hug.previousElementSibling.style.setProperty("--raw-progress", rawProgress.toString());
+});
